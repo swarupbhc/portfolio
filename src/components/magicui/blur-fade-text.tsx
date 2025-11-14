@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, Variants } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface BlurFadeTextProps {
   text: string;
@@ -26,12 +26,17 @@ const BlurFadeText = ({
   yOffset = 8,
   animateByCharacter = false,
 }: BlurFadeTextProps) => {
+  const [mounted, setMounted] = useState(false);
   const defaultVariants: Variants = {
     hidden: { y: yOffset, opacity: 0, filter: "blur(8px)" },
     visible: { y: -yOffset, opacity: 1, filter: "blur(0px)" },
   };
   const combinedVariants = variant || defaultVariants;
   const characters = useMemo(() => Array.from(text), [text]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (animateByCharacter) {
     return (
@@ -41,7 +46,7 @@ const BlurFadeText = ({
             <motion.span
               key={i}
               initial="hidden"
-              animate="visible"
+              animate={mounted ? "visible" : "hidden"}
               exit="hidden"
               variants={combinedVariants}
               transition={{
@@ -65,7 +70,7 @@ const BlurFadeText = ({
       <AnimatePresence>
         <motion.span
           initial="hidden"
-          animate="visible"
+          animate={mounted ? "visible" : "hidden"}
           exit="hidden"
           variants={combinedVariants}
           transition={{
