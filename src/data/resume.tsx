@@ -184,7 +184,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/airlegit.png",
+      image: "/airlegit.jpg",
       video:
         "",
     },
@@ -212,7 +212,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/auction.png",
+      image: "/auction.jpg",
       video: "",
     },
     {
@@ -238,7 +238,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/pujo.png",
+      image: "/pujo.jpg",
       video: "",
     },
     {
@@ -264,7 +264,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/vendor.png",
+      image: "/vendor.jpg",
       video:
         "",
     },
